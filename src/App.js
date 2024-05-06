@@ -1,29 +1,25 @@
-import './App.css';
-import ProductList from './components/ProductList';
-import Cart from './components/Cart';
+import logo from "./logo.svg";
+import "./App.css";
+import AddToCart from "./components/AddToCart";
+// import { useState } from "react";
+import Cart from "./components/Cart";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
-import store from './components/redux/store';
-
-import { Provider } from'react-redux';
-
-// import { useState } from 'react';
-
-const App = () => {
+function App() {
   // const [cart, setCart] = useState([]);
 
-  // const addToCart = (product) => {
+  // const addToCartProduct = (product) => {
   //   setCart([...cart, product]);
   // };
-
   return (
     <Provider store={store}>
-    <div>
-      <ProductList />
-      <Cart />
-    </div>
+      <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+        <AddToCart></AddToCart>
+        <Cart></Cart>
+      </div>
     </Provider>
-
   );
-};
+}
 
 export default App;
